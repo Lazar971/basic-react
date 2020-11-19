@@ -14,6 +14,11 @@ pipeline {
                 sh 'npm install'
             }
         }
+        stage('Delete tsconfig') {
+            steps {
+                sh 'rm tsconfig.json'
+            }
+        }
         stage('Test') { 
             steps {
                 sh 'npm test' 
