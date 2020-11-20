@@ -26,7 +26,9 @@ pipeline {
         }
        stage('Create image') { 
             steps {
-               docker.image('basic-react')
+              script{
+                   docker.image('basic-react')
+              }
             }
         }
         
