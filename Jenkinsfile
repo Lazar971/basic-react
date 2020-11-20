@@ -25,13 +25,6 @@ pipeline {
                 sh 'npm test' 
             }
         }
-        stage('Initialize docker'){
-            steps{
-               script{
-                    def dockerHome = tool 'myDocker'
-               }
-            }
-        }
         stage('Create image') { 
             steps {
                 sh 'docker build -t example-app .' 
