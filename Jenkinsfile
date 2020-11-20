@@ -1,13 +1,15 @@
 pipeline {
     agent {
-        docker{
-           image 'smebberson/alpine-nginx-nodejs:4.4.0'
+        dockerfile{
+           dir '.'
+           filename  'agent.build'
         }
     }
     environment {
         CI = 'true' 
     }
     stages {
+        stage('start'){}
         stage('Install') {
             steps {
                 sh 'npm install'
