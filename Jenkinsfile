@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        dockerfile {
+            filename 'agent.build'
+            dir '.'
+        }
+    }
     environment {
         CI = 'true' 
     }
