@@ -1,9 +1,6 @@
 pipeline {
     agent {
-        docker{
-            image 'node:15.2-alpine3.10'
-            args '-p 3000:3000'
-        }
+       any
     }
     environment {
         CI = 'true' 
@@ -29,7 +26,7 @@ pipeline {
               sh 'npm run build'
             }
         }
-        stage('Server') { 
+        stage('Serve') { 
             steps {
               sh 'cp ./build /usr/share/nginx/html'
             }
