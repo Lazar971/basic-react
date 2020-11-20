@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker{
-            image 'nginx:1.19.4-alpine'
+            image 'node:15.2-alpine3.10'
             args '-p 3000:3000'
         }
     }
@@ -35,6 +35,12 @@ pipeline {
             }
         }
         stage('Serve') { 
+            agent {
+                docker{
+                    image 'nginx:1.19.4-alpine'
+                    args '-p 3000:3000'
+                }
+    }
             steps {
               sh 'cp -avr ./build /usr/share/nginx/html'
             }
