@@ -7,6 +7,7 @@ pipeline {
     }
     environment {
         CI = 'true' 
+        PATH = "myDocker/bin:${env.PATH}"
     }
     stages {
         stage('Build') {
@@ -26,8 +27,9 @@ pipeline {
         }
         stage('Initialize docker'){
             steps{
-                def dockerHome = tool 'myDocker'
-                env.PATH = "${dockerHome}/bin:${env.PATH}"
+               script{
+                    def dockerHome = tool 'myDocker'
+               }
             }
         }
         stage('Create image') { 
