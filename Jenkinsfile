@@ -34,19 +34,20 @@ pipeline {
               sh 'ls && ls / && ls /usr/share'
             }
         }
-        stage('Serve') { 
-            agent {
-                docker{
-                    image 'nginx:1.19.4-alpine'
-                    args '-p 8081:8081'
-                }
-            }
-                steps {
-                    sh 'cp -avr ./build /usr/share/nginx/html'
-                }
-            
-           
-        }
+        
     }
 
+}
+pipeline{
+    agent {
+        docker{
+            image 'nginx:1.19.4-alpine'
+            args '-p 8081:8081'
+        }
+    }
+    stage('Serve') { 
+        steps {
+            sh 'cp -avr ./build /usr/share/nginx/html'
+            }     
+    }
 }
