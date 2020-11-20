@@ -9,7 +9,7 @@ pipeline {
         CI = 'true' 
     }
     stages {
-        stage('Build') {
+        stage('Install') {
             steps {
                 sh 'npm install'
             }
@@ -24,14 +24,16 @@ pipeline {
                 sh 'npm test' 
             }
         }
-       stage('Create image') { 
+       stage('Build') { 
             steps {
-              script{
-                   docker.image('basic-react')
-              }
+              sh 'npm run build'
             }
         }
-        
+        stage('Server') { 
+            steps {
+              sh 'cp ./build /usr/share/nginx/html'
+            }
+        }
     }
 
 }
