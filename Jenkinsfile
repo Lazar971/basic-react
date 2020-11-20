@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker{
-           image 'alpine-nginx-nodejs:4.4.0'
+           image 'smebberson/alpine-nginx-nodejs:4.4.0'
         }
     }
     environment {
