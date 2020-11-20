@@ -26,12 +26,12 @@ pipeline {
         }
         stage('Create image') { 
             steps {
-                bash 'docker build -t example-app .' 
+                sh 'docker build -t example-app .' 
             }
         }
          stage('Deploy') { 
             steps {
-                bash 'docker run -d example-app' 
+                sh 'docker run -d example-app' 
             }
         }
     }
