@@ -1,14 +1,6 @@
-pipeline {
-    agent {
-        docker{
-            image 'node:15.2-alpine3.10'
-            args '-p 3000:3000'
-        }
-    }
-    environment {
-        CI = 'true' 
-        PATH = "myDocker/bin:${env.PATH}"
-    }
+node {
+   def app
+   
     stages {
         stage('Build') {
             steps {
@@ -27,7 +19,7 @@ pipeline {
         }
         stage('Create image') { 
             steps {
-                sh 'docker build -t example-app .' 
+               app=docker.build('example-app')
             }
         }
          stage('Deploy') { 
