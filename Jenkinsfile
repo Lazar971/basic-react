@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        dockerfile {
+        docker{
            image: 'alpine-nginx-nodejs:4.4.0'
         }
     }
