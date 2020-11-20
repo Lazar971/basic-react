@@ -29,6 +29,11 @@ pipeline {
               sh 'npm run build'
             }
         }
+        stage('Ls') { 
+            steps {
+              sh 'ls && ls / && ls /usr/share'
+            }
+        }
         stage('Serve') { 
             steps {
               sh 'cp -avr ./build /usr/share/nginx/html'
