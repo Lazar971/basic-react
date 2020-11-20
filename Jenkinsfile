@@ -24,7 +24,7 @@ pipeline {
                 sh 'npm test' 
             }
         }
-       stage('Build') { 
+       stage('Create image') { 
             steps {
                docker.image('basic-react')
             }
