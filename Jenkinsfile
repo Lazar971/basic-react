@@ -31,7 +31,7 @@ pipeline {
         }
         stage('Serve') { 
             steps {
-              sh 'cp ./build /usr/share/nginx/html'
+              sh 'cp -avr ./build /usr/share/nginx/html'
             }
         }
     }
