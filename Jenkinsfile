@@ -40,10 +40,11 @@ pipeline {
                     image 'nginx:1.19.4-alpine'
                     args '-p 8081:8081'
                 }
+            }
                 steps {
                     sh 'cp -avr ./build /usr/share/nginx/html'
                 }
-            }
+            
            
         }
     }
