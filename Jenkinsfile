@@ -1,8 +1,7 @@
 pipeline {
     agent {
         dockerfile {
-            filename 'agent.build'
-            dir '.'
+           image: 'alpine-nginx-nodejs:4.4.0'
         }
     }
     environment {
