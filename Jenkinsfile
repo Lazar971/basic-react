@@ -29,25 +29,23 @@ pipeline {
               sh 'npm run build'
             }
         }
-        stage('Ls') { 
-            steps {
-              sh 'ls && ls / && ls /usr/share'
-            }
-        }
         
     }
 
 }
 pipeline{
-    agent {
+     agent {
         docker{
             image 'nginx:1.19.4-alpine'
             args '-p 8081:8081'
         }
     }
-    stage('Serve') { 
-        steps {
-            sh 'cp -avr ./build /usr/share/nginx/html'
+    stages{
+         stage('Serve') { 
+           
+            steps {
+                sh 'cp -avr ./build /usr/share/nginx/html'
             }     
+        }
     }
 }
