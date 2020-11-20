@@ -1,4 +1,4 @@
-node {
+pipeline {
     agent {
         docker{
             image 'node:15.2-alpine3.10'
@@ -14,12 +14,12 @@ node {
                 sh 'npm install'
             }
         }
-       
         stage('Test') { 
             steps {
                 sh 'npm test' 
             }
         }
+       
         
     }
 
