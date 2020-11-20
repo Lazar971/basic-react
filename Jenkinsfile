@@ -38,7 +38,7 @@ pipeline {
             agent {
                 docker{
                     image 'nginx:1.19.4-alpine'
-                    args '-p 80:80'
+                    args '-p 8081:8081'
                 }
     }
             steps {
