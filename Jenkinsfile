@@ -1,4 +1,4 @@
-pipeline {
+node {
     agent {
         docker{
             image 'node:15.2-alpine3.10'
@@ -14,26 +14,13 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Delete tsconfig') {
-            steps {
-                sh 'rm tsconfig.json'
-            }
-        }
+       
         stage('Test') { 
             steps {
                 sh 'npm test' 
             }
         }
-        stage('Create image') { 
-            steps {
-                sh 'docker build -t example-app .' 
-            }
-        }
-         stage('Deploy') { 
-            steps {
-                sh 'docker run -d example-app' 
-            }
-        }
+        
     }
 
 }

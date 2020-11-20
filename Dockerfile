@@ -1,12 +1,11 @@
-FROM node:13.12.0-alpine as build
+FROM node:15.2-alpine3.10 as build
 WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm i
-RUN npm install react-scripts -g
-COPY . ./
-RUN npm run build
+RUN curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b /usr/local/bin
+COPY . ./app
+RUN npm i && npm run build
+
+RUN npm prune --production
+RUN /usr/local/bin/node-prune
 
 # production environment
 FROM nginx:stable-alpine
