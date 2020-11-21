@@ -19,6 +19,7 @@ pipeline {
         stage('Remove tsconfig.json') {
             steps {
                 sh 'rm tsconfig.json'
+                sh 'ls'
             }
         }
         stage('Test') { 
