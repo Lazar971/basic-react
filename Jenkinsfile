@@ -13,8 +13,8 @@ pipeline {
        
         stage('Install') {
             steps {
-                sh 'npm install'
                 sh 'node --version'
+                sh 'npm install'
                 sh 'npm i -g typescript'
             }
         }
