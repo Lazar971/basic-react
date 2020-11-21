@@ -1,2 +1,0 @@
-FROM smebberson/alpine-nginx-nodejs:4.4.0
-CMD ["nginx", "-g", "daemon off;"]
