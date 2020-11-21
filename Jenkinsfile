@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker{
+        dockerfile{
            filename 'agent.build'
            dir '.'
            args ' -i --entrypoint= --user root'
