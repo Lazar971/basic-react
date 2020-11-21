@@ -13,6 +13,7 @@ pipeline {
         stage('Install') {
             steps {
                 sh 'npm install'
+                sh 'npm i -g typescript'
             }
         }
         stage('Remove tsconfig.json') {
