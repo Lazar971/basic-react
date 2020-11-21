@@ -1,9 +1,8 @@
 pipeline {
     agent {
-        dockerfile{
-           dir '.'
-           filename  'agent.build'
-           args '-p 8081:80'
+        docker{
+           image 'smebberson/alpine-nginx-nodejs:4.4.0'
+           args '-p 8081:8081'
         }
     }
     environment {
