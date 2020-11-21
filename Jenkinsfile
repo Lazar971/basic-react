@@ -1,5 +1,11 @@
 pipeline {
-    agent none
+    agent {
+        docker{
+           filename 'agent.build'
+           dir '.'
+           args ' -i --entrypoint= --user root'
+        }
+    }
     environment {
         CI = 'true' 
     }

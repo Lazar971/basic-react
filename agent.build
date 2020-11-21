@@ -1,3 +1,5 @@
-FROM smebberson/alpine-nginx-nodejs
+FROM docker
 
-RUN apk update && apk add --update nodejs
+RUN docker pull nginx:1.19.4-alpine node:15.2.1-alpine3.10
+RUN docker run -d nginx 
+RUN docker run -d node
