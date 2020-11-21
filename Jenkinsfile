@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker{
            image 'smebberson/alpine-nginx-nodejs:4.4.0'
-           args '-p 8081:8081'
+           args '-p 8081:8081 -i --entrypoint='
         }
     }
     environment {
