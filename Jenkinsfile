@@ -3,6 +3,7 @@ pipeline {
         dockerfile{
            dir '.'
            filename  'agent.build'
+           args '-p 8081:80'
         }
     }
     environment {
