@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker{
-           image 'tiangolo/node-frontend:10'
-           args ' --user root'
+           image 'node:15.2.1-alpine3.10'
+         
         }
     }
     environment {
@@ -33,12 +33,7 @@ pipeline {
               sh 'npm run build'
             }
         }
-        stage('Serve') { 
-           
-            steps {
-                sh 'cp -avr ./build /usr/share/nginx/html'
-            }     
-        }
+        
     }
 
 }
