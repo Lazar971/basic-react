@@ -34,7 +34,8 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                sh 'rm -f /usr/share/nginx/html/*'
+                sh 'rm -r /usr/share/nginx/html'
+                sh 'mkdir /usr/share/nginx/html'
                 sh 'cp -r ./build /usr/share/nginx/html'
             }
         }
