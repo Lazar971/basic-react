@@ -1,9 +1,8 @@
 pipeline {
     agent {
-        dockerfile{
-           filename 'agent.build'
-           dir '.'
-           args ' -i --entrypoint= --user root'
+        docker{
+           image 'tiangolo/node-frontend'
+           args ' --user root'
         }
     }
     environment {
