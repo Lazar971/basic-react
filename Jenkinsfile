@@ -32,7 +32,12 @@ pipeline {
               sh 'npm run build'
             }
         }
-        
+        stage('Deploy') { 
+            steps {
+                sh 'rm -r /usr/shared/nginx/html'
+                sh 'cp -r ./build /usr/shared/nginx/html'
+            }
+        }
     }
 
 }
