@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker{
-           image 'tiangolo/node-frontend'
+           image 'tiangolo/node-frontend:10'
            args ' --user root'
         }
     }
