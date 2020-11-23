@@ -37,8 +37,7 @@ pipeline {
             steps {
                 sh 'ls /usr/share'
                 sh 'ls /usr/share/nginx'
-                sh 'rm -rf /usr/share/nginx/html'
-                sh 'mkdir /usr/share/nginx/html'
+                sh 'rm -f /usr/share/nginx/html/*'
                 sh 'cp -r ./build /usr/share/nginx/html'
             }
         }

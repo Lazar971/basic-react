@@ -1,5 +1,5 @@
 FROM node:10.23.0-stretch-slim 
 USER root
-RUN apt update && apt install -y nginx && chmod -R 757 /usr/share/nginx/html
+RUN apt update && apt install -y nginx && chmod -R 775 /usr/share/nginx/html
 EXPOSE 8085
 CMD ["nginx", "-g", "daemon off;"]
