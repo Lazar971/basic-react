@@ -1,7 +1,8 @@
 pipeline {
     agent {
-        docker{
-           image 'tiangolo/node-frontend'
+        dockerfile{
+           filename 'agent.build'
+           dir '.'
          
         }
     }
