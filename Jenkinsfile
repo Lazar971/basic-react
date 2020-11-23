@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker{
-           image 'node'
+           image 'tiangolo/node-frontend'
          
         }
     }
@@ -14,7 +14,6 @@ pipeline {
             steps {
                 sh 'node --version'
                 sh 'npm install'
-                sh 'npm i -g typescript'
             }
         }
         stage('Remove tsconfig.json') {
